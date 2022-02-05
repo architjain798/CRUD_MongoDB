@@ -6,6 +6,7 @@ var bodyparser = require("body-parser");
 var fetch_1 = require("./fetch/fetch");
 var insert_1 = require("./insert/insert");
 var remove_1 = require("./remove/remove");
+var update_1 = require("./update/update");
 var app = express();
 app.use(cors());
 app.use(bodyparser.json());
@@ -13,6 +14,7 @@ app.use(bodyparser.urlencoded({ extended: false }));
 app.use("/getrecords", fetch_1["default"]);
 app.use("/insertrecords", insert_1["default"]);
 app.use("/removerecords", remove_1["default"]);
+app.use("/updaterecord", update_1["default"]);
 app.listen(8080, function () {
     console.log("server started");
 });

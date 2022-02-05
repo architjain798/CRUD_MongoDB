@@ -10,10 +10,10 @@ let removeRecord=express.Router().get("/",(req:any,resp:any):any=>{
         }
         else{
             let db=connection.db("mongodb");
-            db.collection("products").deleteOne({id:"1"},(err,res)=>{
+            db.collection("products").deleteOne({id:1},(err,res)=>{
                 if(err) throw err;
                 else{
-                    resp.status(200).json({message:"recored deleted "});
+                    resp.status(200).json({message:"recored deleted successfully"});
                 }
             })
         }
