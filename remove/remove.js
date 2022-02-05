@@ -10,7 +10,7 @@ var removeRecord = express.Router().get("/", function (req, resp) {
         }
         else {
             var db = connection.db("mongodb");
-            db.collection("products").deleteOne({ id: 1 }, function (err, res) {
+            db.collection("products").deleteOne({ id: req.body.id }, function (err, res) {
                 if (err)
                     throw err;
                 else {
@@ -20,4 +20,5 @@ var removeRecord = express.Router().get("/", function (req, resp) {
         }
     });
 });
+/* remove hoga ek particular id dekar */
 exports["default"] = removeRecord;

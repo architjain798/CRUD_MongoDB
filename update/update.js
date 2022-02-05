@@ -10,7 +10,7 @@ var updateRecord = express.Router().get("/", function (req, resp) {
         }
         else {
             var db = connection.db("mongodb");
-            db.collection("products").updateOne({ id: 2 }, { $set: { name: "archit" } }, function (err, resul) {
+            db.collection("products").updateOne({ id: parseInt(req.body.id) }, { $set: { name: req.body.name } }, function (err, resul) {
                 if (err)
                     throw err;
                 else {
@@ -20,4 +20,5 @@ var updateRecord = express.Router().get("/", function (req, resp) {
         }
     });
 });
+/* update hoga ek particular id dekar aur phir ek naame */
 exports["default"] = updateRecord;

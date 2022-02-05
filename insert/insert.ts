@@ -10,7 +10,7 @@ let insertRecord=express.Router().post("/",(req:any,resp:any):any=>{
         }
         else{
             let db=connection.db("mongodb");
-            db.collection("products").insertOne({id:"3",name:"MI",price:"19999"},(err,result)=>{
+            db.collection("products").insertOne({id:parseInt(req.body.id),name:req.body.name,price:parseInt(req.body.price)},(err,result)=>{
                 if(err) throw err;
                 else{
                     resp.send({message:"added successfully"});
@@ -19,6 +19,8 @@ let insertRecord=express.Router().post("/",(req:any,resp:any):any=>{
         }
     }) 
 })
+
+/* insert hoga id , name , price dekar */
 
 export default insertRecord;
  

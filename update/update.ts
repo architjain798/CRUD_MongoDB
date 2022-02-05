@@ -10,7 +10,7 @@ let updateRecord=express.Router().get("/",(req:any,resp:any):any=>{
         }
         else{
             let db=connection.db("mongodb");
-            db.collection("products").updateOne({id:2},{$set:{name:"archit"}},(err,resul)=>{
+            db.collection("products").updateOne({id:parseInt(req.body.id)},{$set:{name:req.body.name}},(err,resul)=>{
                 if(err) throw err;
                 else{
                     resp.status(200).json({message:"recored updated successfully"});
@@ -19,6 +19,8 @@ let updateRecord=express.Router().get("/",(req:any,resp:any):any=>{
         }
     }) 
 })
+
+/* update hoga ek particular id dekar aur phir ek naame */
 
 export default updateRecord;
  
