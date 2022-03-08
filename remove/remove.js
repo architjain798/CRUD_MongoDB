@@ -10,7 +10,7 @@ var removeRecord = express.Router().get("/", function (req, resp) {
         }
         else {
             var db = connection.db("mongodb");
-            db.collection("products").deleteOne({ id: req.body.id }, function (err, res) {
+            db.collection("products").deleteOne({ id: parseInt(req.body.id) }, function (err, res) {
                 if (err)
                     throw err;
                 else {
