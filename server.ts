@@ -20,8 +20,11 @@ app.use("/insertrecords",insertRecord);
 app.use("/removerecords",removeRecord);
 app.use("/updaterecord",updateRecord);
 
-app.listen(8080,()=>{
-    console.log("server started");
+
+let PORT:any =process.env.PORT || 8080;
+
+app.listen(PORT,()=>{
+    console.log("server started by heroku");
 })
 
 
